@@ -1,0 +1,16 @@
+{
+  "name": "code-rechecking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zk",
+  "license": "ISC",
+  "dependencies": {
+    "jsinspect": "^0.12.7",
+    "simple-git": "^1.128.0"
+  }
+}
