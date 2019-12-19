@@ -1,7 +1,7 @@
 {
   "name": "code-rechecking",
   "version": "1.0.0",
-  "description": "",
+  "description": "一键查重，自动检查项目中的重复代码",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,6 +9,10 @@
   },
   "author": "zk",
   "license": "ISC",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/zhangkun-Jser/code-recheck.git"
+	},
   "dependencies": {
     "jsinspect": "^0.12.7",
     "simple-git": "^1.128.0"
