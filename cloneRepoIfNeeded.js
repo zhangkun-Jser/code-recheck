@@ -2,12 +2,8 @@ const git = require('simple-git/promise');
 const path = require('path');
 const fs = require('fs');
 
-const USER = 'bizfe';
-const PASS = '1hxSh0r$';
- 
-const getRepo = (repoWithoutPass) => `http://${USER}:${PASS}@${repoWithoutPass.replace(/^http:\/\//g, '').replace(/#master$/g, '')}`;
-
-const cloneRepoIfNeeded = (projectInfo) => {
+const cloneRepoIfNeeded = (projectInfo, user, password) => {
+  const getRepo = (repoWithoutPass) => `http://${user}:${password}@${repoWithoutPass.replace(/^http:\/\//g, '').replace(/#master$/g, '')}`;
   const projectName = projectInfo.pro;
   const { gitPath } = projectInfo;
   const localPath = path.join('./output', projectName);

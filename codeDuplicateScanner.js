@@ -18,9 +18,9 @@ const defaultOptions = {
 const ignorePatterns = ['test', 'spec', 'mock', 'node_modules', 'bower_components', 'gen-nodejs'];
 const extensions = ['.js', '.jsx', '.es6', '.ts', '.tsx'];
 
-const run = (projectInfo) => new Promise((resolve) => {
+const run = (projectInfo, output = './reports') => new Promise((resolve) => {
   const projectName = projectInfo.pro;
-  const projectPath = path.join('./output', projectName);
+  const projectPath = path.join('./output' , projectName);
   const srcPath = path.join(projectPath, 'src');
 
   const suppliedPaths = fs.existsSync(srcPath) ? srcPath : projectPath;
@@ -39,7 +39,7 @@ const run = (projectInfo) => new Promise((resolve) => {
 
   new MarkdownReporter(inspector, {
     ...defaultOptions,
-    outputFilePath: path.join('./reports', `${projectName}.md`),
+    outputFilePath: path.join(output, `${projectName}.md`),
     projectInfo,
   });
 
