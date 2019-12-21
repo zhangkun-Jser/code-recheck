@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const cloneRepoIfNeeded = (projectInfo, user, password) => {
   const getRepo = (repoWithoutPass) => `http://${user}:${password}@${repoWithoutPass.replace(/^http:\/\//g, '').replace(/#master$/g, '')}`;
-  const projectName = projectInfo.pro;
+  const projectName = projectInfo.name;
   const { gitPath } = projectInfo;
   const localPath = path.join('./output', projectName);
 

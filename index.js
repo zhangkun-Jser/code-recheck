@@ -4,8 +4,8 @@
  * @LastEditTime : 2019-12-20 18:30:27
  * @Description: 优化模块入口
  */
-const codeDuplicateScanner = require('./codeDuplicateScanner');
-const cloneRepoIfNeeded = require('./cloneRepoIfNeeded');
+const codeDuplicateScanner = require('./src/codeDuplicateScanner');
+const cloneRepoIfNeeded = require('./src/cloneRepoIfNeeded');
 
 const runTask = async (projectInfo, output, user, password) => {
   await cloneRepoIfNeeded(projectInfo, user, password);
