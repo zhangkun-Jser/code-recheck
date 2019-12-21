@@ -10,8 +10,7 @@
 
 
 ## 使用方法
-
-支持传入多个git项目列表，批量生成代码重复文件输出到指定地址。
+### 1. 支持传入多个远程git项目列表，批量生成代码重复文件输出到指定地址。
 
 ```js
 const { check } = require('code-recheck');
@@ -21,19 +20,29 @@ const password = 'gitpassword';
 const path = '/Users/zhangkun/Desktop'
  
 const list = [{
-    "pro": "内部测试项目",
-    "gitPath": "http://bizgit.sogou/biztech/bizfe/arch/kaleidoscope/kaleidoscope-fe.git#master",
+    "name": "内部测试项目",//项目名，也是输出文件名
+    "gitPath": "http://bizgit.sogou/biztech/bizfe/arch/kaleidoscope/kaleidoscope-fe.git",
   }]
 
 check({list,path,user,password})
 ```
 
-## 参数
+#### 参数
 
 | Prop     | Type   | Description  | default | 
 | -------- | ------ | ------------ | ------- |
-| list    | Array<{pro: string, gitPath: string}> | git项目仓库列表  | -       |
+| list    | Array<{name: string, gitPath: string}> | git项目仓库列表  | -       |
 | path | string   | 重复文件输出路径 | ./reports    |
 | user | string   | git用户名 | -     |
 | password | string   | git密码 | -     |
 
+### 2. 支持命令行调用检查本地文件
+首先全局安装本模块
+```js
+npm i code-recheck -g
+```
+然后定位到项目目录，直接命令行执行check，检查完成后会在当前目录下生成重复代码.md文件。
+
+## Changelogs
+ 12月21日
+ - 支持本地文件检查，在当前目录下输出重复代码文件

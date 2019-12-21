@@ -8,7 +8,7 @@
     "test": "node test"
   },
   "author": "zk",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "代码查重"
   ],
@@ -16,6 +16,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zhangkun-Jser/code-recheck.git"
+  },
+  "bin": {
+    "check": "./bin/check.js"
   },
   "dependencies": {
     "jsinspect": "^0.12.7",
