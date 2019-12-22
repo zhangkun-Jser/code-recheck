@@ -3,8 +3,8 @@
 ### project info:
 ```json
 {
-  "name": "重复代码输出示例",
-  "gitPath": "http://***********.git#master",
+  "name": "代码重复报告输出示例",
+  "gitPath": "http://***********.git",
 }
 ```
 

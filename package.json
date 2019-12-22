@@ -1,10 +1,10 @@
 {
   "name": "code-recheck",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "一键查重，自动检查项目中的重复代码",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index",
     "test": "node test"
   },
   "author": "zk",

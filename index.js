@@ -1,7 +1,7 @@
 /*
  * @Author: zk
  * @Date: 2019-12-19 20:35:48
- * @LastEditTime : 2019-12-20 18:30:27
+ * @LastEditTime : 2019-12-21 18:30:27
  * @Description: 优化模块入口
  */
 const codeDuplicateScanner = require('./src/codeDuplicateScanner');

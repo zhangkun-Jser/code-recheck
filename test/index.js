@@ -9,4 +9,9 @@ const list = [{
     "gitPath": "http://bizgit.sogou/biztech/bizfe/arch/kaleidoscope/kaleidoscope-fe.git",
   }]
 
-check({list,path,user,password})
+check({
+  list,
+  path,
+  user,
+  password
+})

@@ -15,8 +15,8 @@ const defaultOptions = {
 const ignorePatterns = ['test', 'spec', 'mock', 'node_modules', 'bower_components', 'gen-nodejs'];
 const extensions = ['.js', '.jsx', '.es6', '.ts', '.tsx']
 
-const run = (projectInfo, output = './reports') => new Promise((resolve) => {
-  let projectName = '重复代码', suppliedPaths;
+const run = (projectInfo, output = './report') => new Promise((resolve) => {
+  let projectName = '代码重复报告', suppliedPaths;
   if(typeof projectInfo == 'object'){
     projectName = projectInfo.name;
     const projectPath = path.join('./output' , projectName);

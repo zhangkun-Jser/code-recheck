@@ -1,12 +1,16 @@
 const git = require('simple-git/promise');
 const path = require('path');
 const fs = require('fs');
+const { URL } = require('url');
+
 
 const cloneRepoIfNeeded = (projectInfo, user, password) => {
-  const getRepo = (repoWithoutPass) => `http://${user}:${password}@${repoWithoutPass.replace(/^http:\/\//g, '').replace(/#master$/g, '')}`;
-  const projectName = projectInfo.name;
-  const { gitPath } = projectInfo;
-  const localPath = path.join('./output', projectName);
+  const {name, gitPath} = projectInfo
+  let url = new URL(gitPath);
+  url.hash = '';
+  if(user) url.username = user;
+  if(password) url.password = password;
+  const localPath = path.join('./output', name);
 
   if(fs.existsSync(localPath)) {
     console.log(`${localPath} exists, skip clone repo`);
@@ -14,8 +18,8 @@ const cloneRepoIfNeeded = (projectInfo, user, password) => {
   }
 
   return git()
-    .clone(getRepo(gitPath), localPath, ['--depth=1'])
-    .then(() => console.log(`${projectName} finished`))
+    .clone(url.href, localPath, ['--depth=1'])
+    .then(() => console.log(`${url.href}已经下载到${localPath}`))
     .catch((err) => console.error('failed: ', err));
 };
 
