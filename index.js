@@ -7,23 +7,20 @@
 const codeDuplicateScanner = require('./src/codeDuplicateScanner');
 const cloneRepoIfNeeded = require('./src/cloneRepoIfNeeded');
 
-const runTask = async (projectInfo, output, user, password) => {
+const runTask = async ({projectInfo, output, ext, ignore, user, password}) => {
   await cloneRepoIfNeeded(projectInfo, user, password);
-  await codeDuplicateScanner(projectInfo, output);
+  await codeDuplicateScanner(projectInfo, output, ext, ignore);
 };
 
-const check = ({list, path: output, user, password}) => {
-
+const check = ({list, path: output, ...rest}) => {
   if(!Array.isArray(list)) throw new Error('传入的参数必须是数组')
 
   list.reduce(
     (thenable, projectInfo) => {
-      return thenable.then(_ => runTask(projectInfo, output, user, password)).catch(error => console.log('error', {error}));
+      return thenable.then(_ => runTask({projectInfo, output, ...rest})).catch(error => console.log('error', {error}));
     },
     Promise.resolve()
   )
 }
 
-module.exports = {
-   check
-};
+module.exports = check;

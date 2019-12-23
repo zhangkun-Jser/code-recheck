@@ -1,8 +1,8 @@
+const fs = require('fs');
+const path = require('path');
 const filepaths = require('filepaths');
 const Inspector = require('jsinspect/lib/inspector');
 const MarkdownReporter = require('./markdownReporter');
-const path = require('path');
-const fs = require('fs');
 
 const defaultOptions = {
   "threshold":     30,
@@ -12,11 +12,12 @@ const defaultOptions = {
   "truncate":      100,
 };
 
-const ignorePatterns = ['test', 'spec', 'mock', 'node_modules', 'bower_components', 'gen-nodejs'];
-const extensions = ['.js', '.jsx', '.es6', '.ts', '.tsx']
+const ignorePatterns = ['test', 'mock', 'node_modules', 'gen-nodejs'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
-const run = (projectInfo, output = './report') => new Promise((resolve) => {
+const run = (projectInfo, output = './report' , ext = extensions , ignore = ignorePatterns) => new Promise((resolve) => {
   let projectName = '代码重复报告', suppliedPaths;
+
   if(typeof projectInfo == 'object'){
     projectName = projectInfo.name;
     const projectPath = path.join('./output' , projectName);
@@ -28,10 +29,9 @@ const run = (projectInfo, output = './report') => new Promise((resolve) => {
   }else throw new Error(`传入参数格式错误, projectInfo应该为object或字符串，当前是${projectInfo}`)
 
   const paths = filepaths.getSync(suppliedPaths, {
-    ext: extensions,
-    ignore: ignorePatterns
+    ext,
+    ignore
   });
-
 
   if (!paths.length) {
     throw new Error(`No ${extensions.join(' ')} files found in the list of paths`);

@@ -1,6 +1,6 @@
 {
   "name": "code-recheck",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "一键查重，自动检查项目中的重复代码",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,10 @@
   "author": "zk",
   "license": "MIT",
   "keywords": [
-    "代码查重"
+    "代码查重",
+    "codeReview"
   ],
-  "homepage": "https://github.com/zhangkun-Jser/code-recheck.git",
+  "homepage": "https://github.com/zhangkun-Jser/code-recheck.git#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/zhangkun-Jser/code-recheck.git"

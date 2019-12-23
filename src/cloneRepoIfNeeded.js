@@ -1,8 +1,7 @@
-const git = require('simple-git/promise');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
 const { URL } = require('url');
-
+const git = require('simple-git/promise');
 
 const cloneRepoIfNeeded = (projectInfo, user, password) => {
   const {name, gitPath} = projectInfo
