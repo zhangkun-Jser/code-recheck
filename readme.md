@@ -23,7 +23,7 @@ const list = [
               {
                 "name": "测试项目1", //生成的重复报告将以此命名
                 "gitPath": "https://github.com/zhangkun-Jser/autils",
-              }，
+              },
               {
                 "name": "测试项目2", 
                 "gitPath": "https://github.com/zhangkun-Jser/auto-form-create",
